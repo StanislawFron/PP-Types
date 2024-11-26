@@ -2,9 +2,9 @@
 
 // Data - do not change it in code!
 string[] names = {
-    "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala", 
-    "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston", 
-    "Cinderella", "Prince Charming", "Aurora", "Maleficent", "Rapunzel", "Flynn Rider", "Elsa", "Anna", 
+    "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala",
+    "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston",
+    "Cinderella", "Prince Charming", "Aurora", "Maleficent", "Rapunzel", "Flynn Rider", "Elsa", "Anna",
     "Olaf", "Moana", "Maui", "Hercules"
 };
 
@@ -14,9 +14,12 @@ string[] names = {
 // After last element should be ".".
 void PrintGroups(string[] t, int perLine)
 {
-
-    // Write required code.
-
+    for (int i = 0; i < t.Length; i++)
+    {
+        string postfix = (i == (t.Length - 1) ? "." : ", ");
+        string completedText = t[i] + postfix;
+        Console.Write((i + 1) % perLine == 0 ? completedText + "\n" : completedText);
+    }
 }
 
 
@@ -27,9 +30,11 @@ void PrintGroups(string[] t, int perLine)
 
 void PrintColumns(string[] t, int perLine, int width)
 {
-
-    // Write required code.
-
+    for (int i = 0; i < t.Length; i++)
+    {
+        string text = t[i].Length > width ? t[i].Substring(0, width) : t[i].PadRight(width);
+        Console.Write((i + 1) % perLine == 0 ? text + '\n' : text + "| ");
+    }
 }
 
 
